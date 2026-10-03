@@ -1,6 +1,7 @@
 // GB/T 7714 双语参考文献系统 - 作者格式化模块
 
 #import "versions/mod.typ": get-author-format-rules, get-terms
+#import "core/state.typ": _config
 
 /// 格式化作者列表
 /// - parsed-names: citegeist 解析的 parsed_names
@@ -50,7 +51,16 @@
       family + given
     } else {
       // 英文：根据版本规则决定大小写
-      let family-case-fn = if rules.family-uppercase { upper } else { x => x }
+      // en-family-titlecase: 英文姓转 Title Case（默认关闭，保持原样输出）
+      let cfg = _config.get()
+      let en-titlecase = cfg.at("en-family-titlecase", default: false)
+      let family-case-fn = if rules.family-uppercase {
+        upper
+      } else if en-titlecase {
+        x => x.split("-").map(part => upper(part.first()) + lower(part.slice(1))).join("-")
+      } else {
+        x => x
+      }
 
       // prefix 作为姓的一部分（demote-non-dropping-particle="never"）
       // 但 prefix 始终保持原样，不受 text-case 影响

@@ -45,6 +45,7 @@
   show-accessed: true,
   cn-first: true,
   pinyin-override: (:),
+  en-family-titlecase: false,
   doc,
 ) = {
   // 调用内部实现
@@ -55,6 +56,7 @@
     show-url: show-url,
     show-doi: show-doi,
     show-accessed: show-accessed,
+    en-family-titlecase: en-family-titlecase,
     cn-first: cn-first,
     pinyin-override: pinyin-override,
     doc,

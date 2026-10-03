@@ -35,6 +35,7 @@
   show-accessed: true,
   cn-first: true,
   pinyin-override: (:),
+  en-family-titlecase: false,
   doc,
 ) = {
   // 加载 bib 数据
@@ -50,6 +51,7 @@
     show-url: show-url,
     show-doi: show-doi,
     show-accessed: show-accessed,
+    en-family-titlecase: en-family-titlecase,
   ))
   _cn-first.update(cn-first)
   _pinyin-override.update(pinyin-override)
