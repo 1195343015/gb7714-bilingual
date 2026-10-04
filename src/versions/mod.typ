@@ -2,6 +2,7 @@
 
 #import "v2015.typ": config-2015
 #import "v2025.typ": config-2025
+#import "../core/state.typ": _config
 
 // 版本 -> 配置映射
 #let _configs = (
@@ -32,7 +33,25 @@
 
 /// 获取标点符号配置
 #let get-punctuation(version, lang) = {
-  get-version-config(version).punctuation
+  let punct = get-version-config(version).punctuation
+  // punct-width: auto 跟随版本配置；"half" 全部半角；"full" 全部全角
+  let width = _config.get().at("punct-width", default: auto)
+  if width == "half" {
+    punct.insert("period", ".")
+    punct.insert("comma", ", ")
+    punct.insert("colon", ": ")
+    punct.insert("lparen", "(")
+    punct.insert("rparen", ")")
+    punct.insert("semicolon", "; ")
+  } else if width == "full" {
+    punct.insert("period", "．")
+    punct.insert("comma", "，")
+    punct.insert("colon", "：")
+    punct.insert("lparen", "（")
+    punct.insert("rparen", "）")
+    punct.insert("semicolon", "；")
+  }
+  punct
 }
 
 /// 获取作者格式化规则
