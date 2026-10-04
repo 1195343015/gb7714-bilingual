@@ -33,9 +33,6 @@
   let terms = get-terms(version, lang)
   let rules = get-author-format-rules(version)
 
-  // 作者分隔符：根据版本选择（CSL 规范）
-  // 2015: 默认英文逗号 ", "
-  // 2025: 中文逗号 "，"（<name delimiter="，"/>）
   // 作者分隔符取自标点配置（2015 ", " / 2025 "，"，并跟随 punct-width）
   let delimiter = get-punctuation(version, lang).comma
 
