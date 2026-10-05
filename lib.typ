@@ -49,6 +49,8 @@
   pinyin-override: (:),
   range-tilde: false,
   punct-width: auto,
+  bib-title: auto,
+  bib-full-control: auto,
   doc,
 ) = {
   // 调用内部实现
@@ -61,6 +63,8 @@
     show-accessed: show-accessed,
     range-tilde: range-tilde,
     punct-width: punct-width,
+    bib-title: bib-title,
+    bib-full-control: bib-full-control,
     cn-first: cn-first,
     pinyin-override: pinyin-override,
     doc,

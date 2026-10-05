@@ -15,6 +15,8 @@
   show-accessed: true, // 是否显示访问日期
   range-tilde: false, // 连续编号区间改用 ~ 连接（默认用 -）
   punct-width: auto, // 标点宽度：auto / "half" / "full" / 按类覆盖字典
+  bib-title: auto, // 所有文献表的默认标题；auto 表示不设置
+  bib-full-control: auto, // 所有文献表的默认渲染回调；auto 表示不设置
 ))
 
 // 著者-出版年制：中文文献排在外文文献之前（仅影响参考文献列表排序）
